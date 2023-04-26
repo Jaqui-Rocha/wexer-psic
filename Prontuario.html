@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário</title>
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- link CSS -->
+    <link rel="stylesheet" href="index.css">
+     <!-- link JS -->
+     <script src="projeto.js"></script>
+</head>
+<body class="img-fluid d-flex flex-column">
+    <div class="cabecalho d-flex  backgroudsombra">
+        <div class="backgroudsombra p-4 botao1">
+            <img src="homenzinho.png">
+        </div>
+        <div class="primary  d-flex justify-content-between col-sm-11 align-items-center">
+            <a class="colorgray padding0 b link justify-start" href="pacientes.html">Voltar listagem</a>
+           <div> <h5 class="b primary align-middle">Bem Vindo(a), Daniel <img src="setabaixo.png"class="btn"></h5></div>
+        </div>
+    </div>
+    <div class="col-10 d-flex justify-content-between p-4 mx-auto ">
+        <h4 class="colorgray align-content-center"> Prontuário</h4>
+        <div class="d-flex col-10 justify-content-end ">
+                         
+            <input class="col-5 text-sm-start colorgray sborda radioLE p-lg-2"value="Pesquisar"></input><button type="submit" class="radioLD sborda color texto img-fluid text-wrap p-lg-2"><img src="lupa.png"> Filtrar</button><br><br><br>
+       </div>
+    </div>    
+    <div class="col-10 d-flex  mx-auto justify-content-between">
+        <div class="backgroudwhite2 p-20">
+            <h5>Identificação do paciente</h5>
+                <span class="primary "><img src="paciente.png"> Paciente</span><br>
+                    <span class="colorgray ">Ana Ester Rezende</span><br><br>
+                <span class="primary "><img src="data.png"> Nascimento</span><br>
+                    <span class="colorgray">10/09/2000</span><br><br>
+                <span class="primary"><img src="profissao.png"> Profissão</span><br>
+                    <span class="colorgray">Designer</span><br><br>
+                <span class="primary"><img src="escolaridade.png"> Escolaridade</span><br>
+                    <span class="colorgray">Superior Incompleto</span><br><br>
+        </div>
+        <div class="col-8 fundobranco ">
+            <div class="d-flex justify-content-between left-right ">
+                <h4><img src="sessão.png">   Sessão</h4>
+                <h4><img src="fato-relevante.png">   Fato Relevante</h4>
+           </div> 
+
+        </div>
+    </div><br>
+    <!--  modal nova sessao -->
+<div class="col-7 mx-auto fundobranco1 ">
+    <div class="d-flex justify-content-between distancia1 m-top ">
+        <h4 class="  primary">Nova sessão</h4>
+        <img src="x-preto.png" class="imagem btn">
+    </div><br>
+    <div class="overflow-y-scroll tamanhoscroll distancia1">
+        <div class="d-flex ">
+            <div class="num letrabranca text-center">1</div>
+            <div class="colorgray">Dados gerais</div>
+        </div>
+        <div class="d-flex justify-content-between p-3">
+            <form class="tamanhoformulario">
+                <label class="colorgray" for="data">Data*</label><br>
+                <input type="date" class="" id="data" placeholder="25/04/2023"> <br>
+            </form>
+            <form class="tamanhoformulario">
+                <label class="colorgray" for="hora-inicio">Hora Início*</label><br>
+                <input type="text" class="" id="hora-inicio" placeholder="12:00"> <br>
+            </form>
+            <form class="tamanhoformulario">
+                <label class="colorgray" for="hora-fim">Hora Fim*</label><br>
+                <input type="text" class="" id="hora-fim" placeholder="13:00"> <br>
+            </form>
+        </div>
+        <div class="row1"></div><br>
+        <div class="d-flex ">
+            <div class="num letrabranca text-center">2</div>
+            <div class="colorgray">Sessão</div>
+        </div>
+        <div class=" p-3">
+            <form class="">
+                <label class="colorgray " for="titulo">Título*</label><br>
+                <input type="text" class="form-control" id="titulo" placeholder="Digite"> <br>
+            </form>
+            <form class="">
+                <label class="colorgray" for="resumo-sessao">Resumo da sessão*</label><br>
+                <textarea type="text-area" class="form-control" id="resumo-sessao" rows="5" placeholder="Text"></textarea> <br>
+            </form>
+        </div>    
+
+    </div>  
+      
+    <div class="row"></div>
+    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</button></div></div>
+    <br>
+    
+</div><br>
+<!-- modal novo fato relevante -->
+<div class="fundobranco1 col-6 mx-auto">
+    <div class="d-flex justify-content-between col-10 mx-auto m-top ">
+        <h4 class="  primary">Novo Fato Relevante</h4>
+        <img src="x-preto.png" class=" btn">
+    </div><br>
+   <div class="col-10 mx-auto">
+        <div class="d-flex justify-content-between ">
+            <form class="">
+                <label class="colorgray" for="data">Data*</label><br>
+                <input type="date" class="" id="data" placeholder="00/00/0000"> <br>
+            </form>
+            <form class="">
+                <label class="colorgray" for="titulo1">Título*</label><br>
+                <input type="text" class="form-control" id="titulo1" placeholder="Digite"> <br>
+            </form>
+        </div>
+        <form>
+            <label class="colorgray"for="descricao">Descrição*</label><br>
+            <textarea class="form-control"placeholder="Text" id="descricao" rows="5"></textarea>
+
+        </form><br>
+    
+    </div>
+    <div class="row"></div>
+    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</button></div></div>
+    <br>
+    
+</div>
+
+     <!-- js bootstrap -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
