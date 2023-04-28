@@ -62,7 +62,7 @@ body{
 .link{
     text-decoration: none; 
 }
-a{
+.a{
     padding-left: 30%;
 }
 .backgroudwhite{
@@ -292,4 +292,19 @@ background: #2F80ED;
     border-left: 3px solid green;
     height: 60px;
     margin-left: 45px;
+}
+.sofundobranco{
+    background-color: white;
+}
+.sofundobranco img{
+    width: 10px;
+    height: 16px;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+.p-left{
+     padding-left: 0;
+}
+.sessao img{
+width: 10px;
 }
