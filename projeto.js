@@ -1,30 +1,50 @@
-// const myModal = document.getElementById('myModal')
-// const myInput = document.getElementById('myInput')
-
-// myModal.addEventListener('shown.bs.modal', () => {
-//   myInput.focus()
-// })
-
-// const modalCadastro= document.getElementById('modalCadastro');
-// const modalEditar= document.getElementById('modalEditar');
-// const modalDados= document.getElementById('modalDados');
-// const modalCheck= document.getElementById('modalCheck');
-// const fundoModal= document.getElementById('fundoModal');
+let fundoModal= document.querySelector('#fundoModal');
+let modalCadastro= document.querySelector('#modalCadastro');
+let modalEditar= document.querySelector('#modalEditar');
+let modalDados= document.querySelector('#modalDados');
+let modalCheck= document.querySelector('#modalCheck');
+let fundoEditar= document.querySelector('#fundoEditar');
+let fundoExcluir= document.querySelector('#fundoExcluir');
+const bntCriar = document.querySelector('#bntCriar');
+const formCriar= document.querySelector('#formCriar');
 
 function openModal(){
-  let fundoModal= document.querySelector('#fundoModal');
-  let modalCadastro= document.querySelector('#modalCadastro');
-  fundoModal.style.visibility= 'visible';
-  modalCadastro.style.visibility = 'visible';
- 
- 
+  fundoModal.style.display= 'block';
+  modalCadastro.style.display = 'block';
+}
+function openModalEditar(){
+  
+  fundoEditar.style.display= 'block';
+  modalEditar.style.display = 'block';
+}
+function openModalDados(){
+  
+  fundoExcluir.style.display= 'block';
+  modalDados.style.display = 'block';
+}
+function openModalCheck(){
+  
+  fundoEditar.style.display= 'block';
+  modalEditar.style.display = 'block';
 }
 
+
+formCriar.addEventListener('submit',  e =>{
+//  e.preventDefault()
+ btnCriar.addEventListener('click', e =>{
+  modalCheck.style.display= 'block';
+ })
+ })
+
+
 function fecharModal(){
-  let modalCadastro= document.querySelector('#modalCadastro');
-  let fundoModal= document.querySelector('#fundoModal');
-  modalCadastro.style.visibility = 'hidden';
-  fundoModal.style.visibility= 'hidden';
+  modalCadastro.style.display = 'none';
+  fundoModal.style.display= 'none';
+  modalEditar.style.display= 'none';
+  modalDados.style.display= 'none';
+  modalCheck.style.display= 'none';
+  fundoEditar.style.display= 'none';
+  fundoExcluir.style.display= 'none';
  }
 // const toggleModal = () => {
 //   modalCadastro.classList.console.log ("teste");
@@ -46,28 +66,29 @@ const ListaPacientes={
   ]
 }
 // Função criar Pacientes
-function CriarPacientes(dados){
-ListaPacientes.Pacientes.push({
-  Codigo:ListaPacientes.Pacientes.length+ 1,
-  Nome:dados.nome,
-  CPF:dados.CPF,
-  Email,Sexo,DataDeNascimento,EstadoCivil,Nacionalidade,Profissao,Escolaridade,Mae,Pai
-});
+// function CriarPacientes(dados){
+// ListaPacientes.Pacientes.push({
+//   Codigo:ListaPacientes.Pacientes.length+ 1,
+//   Nome:dados.nome,
+//   CPF:dados.CPF,
+//   Email:dados.Email,
+//   Sexo,DataDeNascimento,EstadoCivil,Nacionalidade,Profissao,Escolaridade,Mae,Pai
+// });
 
-} 
-CriarPacientes('2, Paciente');
-console.log(ListaPacientes.Pacientes)
+// } 
+// CriarPacientes('2, Paciente');
+// console.log(ListaPacientes.Pacientes)
 
-//Função Ler Dados Pacientes
-function MostrarPacientes(){
-  return ListaPacientes.Pacientes;
+// //Função Ler Dados Pacientes
+// function MostrarPacientes(){
+//   return ListaPacientes.Pacientes;
 
-}
-console.log(MostrarPacientes)
-//Função Editar Dados
-function Editar(){
+// }
+// console.log(MostrarPacientes)
+// //Função Editar Dados
+// function Editar(){
 
-}
+// }
 
 
 const visualizarPacientes = async () => {
