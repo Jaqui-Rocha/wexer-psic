@@ -328,7 +328,8 @@ width: 10px;
 }
 #fundoEditar,
 #fundoExcluir,
-#fundoCheck{
+#fundoCheck,
+#fundoFatoRelevante{
     position:fixed;
     top:0;
     left:0;
@@ -349,7 +350,8 @@ width: 10px;
     max-width: 90%;
     display:none;
 }
-#modalEditar{
+#modalEditar,
+#modalFatoRelevante{
     position:fixed;
     left:10%;
     top:10%;

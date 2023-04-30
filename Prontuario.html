@@ -44,7 +44,7 @@
         <div class="col-8 fundobranco ">
             <div class="d-flex justify-content-between left-right ">
                 <h4><img src="sessão.png">   Sessão</h4>
-                <h4><img src="fato-relevante.png">   Fato Relevante</h4>
+                <h4 onclick="openFatoRelevante()" type="submit"><img src="fato-relevante.png">   Fato Relevante</h4>
            </div> 
 
         </div>
@@ -98,33 +98,36 @@
     
 </div><br>
 <!-- modal novo fato relevante -->
-<div class="fundobranco1 col-6 mx-auto">
+<div id="fundoFatoRelevante">
+<div id="modalFatoRelevante" class="fundobranco1 col-6 mx-auto">
     <div class="d-flex justify-content-between col-10 mx-auto m-top ">
         <h4 class="  primary">Novo Fato Relevante</h4>
-        <img src="x-preto.png" class=" btn">
+        <img src="x-preto.png" onclick="fecharModal()" class=" btn">
     </div><br>
    <div class="col-10 mx-auto">
         <div class="d-flex justify-content-between ">
             <form class="">
-                <label class="colorgray" for="data">Data*</label><br>
-                <input type="date" class="" id="data" placeholder="00/00/0000"> <br>
-            </form>
-            <form class="">
-                <label class="colorgray" for="titulo1">Título*</label><br>
-                <input type="text" class="form-control" id="titulo1" placeholder="Digite"> <br>
+                <div>
+                    <label class="colorgray" for="data">Data*</label><br>
+                    <input type="date" class="" id="data" placeholder="00/00/0000"> <br>
+                </div>
+                <div class="">
+                    <label class="colorgray" for="titulo1">Título*</label><br>
+                    <input type="text" class="form-control" id="titulo1" placeholder="Digite"> <br>
+                </div>
+        
+                <div>
+                    <label class="colorgray"for="descricao">Descrição*</label><br>
+                    <textarea class="form-control"placeholder="Text" id="descricao" rows="5"></textarea>
+
+                </div><br>
             </form>
         </div>
-        <form>
-            <label class="colorgray"for="descricao">Descrição*</label><br>
-            <textarea class="form-control"placeholder="Text" id="descricao" rows="5"></textarea>
-
-        </form><br>
-    
     </div>
     <div class="row"></div>
     <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</button></div></div>
     <br>
-    
+</div>    
 </div>
 
      <!-- js bootstrap -->

@@ -3,10 +3,12 @@ let modalCadastro= document.querySelector('#modalCadastro');
 let modalEditar= document.querySelector('#modalEditar');
 let modalDados= document.querySelector('#modalDados');
 let modalCheck= document.querySelector('#modalCheck');
+let fundoCheck= document.querySelector('#fundoCheck');
 let fundoEditar= document.querySelector('#fundoEditar');
 let fundoExcluir= document.querySelector('#fundoExcluir');
-const bntCriar = document.querySelector('#bntCriar');
-const formCriar= document.querySelector('#formCriar');
+let btnCriar= document.querySelector('#btnCriar');
+let formCriar= document.querySelector('#formCriar');
+let fundoFatoRelevante= document.querySelector('#fundoFatoRelevante');
 
 function openModal(){
   fundoModal.style.display= 'block';
@@ -24,14 +26,19 @@ function openModalDados(){
 }
 function openModalCheck(){
   
-  fundoEditar.style.display= 'block';
-  modalEditar.style.display = 'block';
+  fundoCheck.style.display= 'block';
+  modalCheck.style.display = 'block';
+}
+function openFatoRelevante(){
+  
+  fundoFatoRelevante.style.display= 'block';
+  modalFatoRelevante.style.display = 'block';
 }
 
 
 formCriar.addEventListener('submit',  e =>{
-//  e.preventDefault()
- btnCriar.addEventListener('click', e =>{
+ e.preventDefault()
+  bntCriar.addEventListener('click', e =>{
   modalCheck.style.display= 'block';
  })
  })
@@ -45,6 +52,8 @@ function fecharModal(){
   modalCheck.style.display= 'none';
   fundoEditar.style.display= 'none';
   fundoExcluir.style.display= 'none';
+  fundoCheck.style.display= 'none';
+  fundoFatoRelevante.style.display= 'none';
  }
 // const toggleModal = () => {
 //   modalCadastro.classList.console.log ("teste");
