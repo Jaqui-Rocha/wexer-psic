@@ -71,8 +71,8 @@ function fecharModalFatoRelevante(){
 //modal nova sessao-pag prontuario
 let fundoNovaSessao= document.querySelector('#fundoNovaSessao')
 let modalNovaSessao=document.querySelector('#modalNovaSessao')
+
 function openModalNovaSessao(){
-  
   fundoNovaSessao.style.display= 'block';
   modalNovaSessao.style.display = 'block';
 }
@@ -80,23 +80,36 @@ function fecharModalNovaSessao(){
   fundoNovaSessao.style.display= 'none';
   modalNovaSessao.style.display='none';
 }
+function openMiniModal(){
+ miniModal.style.display= 'block';
+ 
+}
 
+let ocultarMiniModal=document.querySelector('#miniModal')
 
+ocultarMiniModal.addEventListener('click', ()=>{
+  ocultarMiniModal.style.display='none';
+})
+// modal do usuario na pag prontuario2
+let dadosUsuario= document.querySelector('.dadosUsuario')
+let pointer=document.querySelector('.pointer')
+pointer.addEventListener('click',()=>{
+dadosUsuario.style.display='block';
+dadosUsuario.addEventListener('click',()=>{
+  dadosUsuario.style.display='none';
+})
 
+})
+// // modal do usuario na pag pacientes
+// let dadosUsuarioPacientes= document.querySelector('#dadosUsuarioPacientes')
+// let pontinhosP=document.querySelector('.pontinhos')
+// pontinhosP.addEventListener('click',()=>{
+// dadosUsuarioPacientes.style.display='block';
+// dadosUsuarioPacientes.addEventListener('click',()=>{
+//   dadosUsuarioPacientes.style.display='none';
+// })
 
-
-
-
-// const toggleModal = () => {
-//   modalCadastro.classList.console.log ("teste");
-//   fundoModal.classList.toggle("hide");
-// };
-
-// [OpenModal,CloseModal,fundoModal].forEach((el)=>{
-//   el.addEventListener("click", (OpenModal) => toggleModal());
-// });
-
-
+// })
 // tentando Crud
 
 const ListaPacientes={
