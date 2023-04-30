@@ -112,8 +112,8 @@
             <div class="row"></div>
             <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">
                 *Campos obrigatórios 
-                <div> Cancelar 
-                    <button type="submit" class="color tamanhobotao  m-left btn btn-secondary" id="bntCriar">Criar</button>
+                <div> <a href="#" onclick="fecharModal()" class="link colorgray">Cancelar</a> 
+                    <button type="submit" class="color tamanhobotao  m-left btn btn-secondary" id="btnCriar" onclick="openModalCheck()">Criar</button>
                 </div>
             </div>
             <br>
@@ -124,7 +124,7 @@
             <div id="fundoEditar">
             <div id="modalEditar" class="col-12 backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
                 <br>
-                <div class="col-11 mx-auto d-flex justify-content-between"><h4 class=" b primary ">Editar Dados do Paciente</h4>  <img src="x-preto.png" onclick="fecharModal()"class="imagem btn"></div><br>
+                <div class="col-11 mx-auto d-flex justify-content-between"><h4 class=" b primary ">Editar Dados do Paciente</h4>  <img src="x-preto.png" onclick="fecharModalEditar()"class="imagem btn"></div><br>
         
                 <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
                     <form class="texto tamanhoformulario">
@@ -186,7 +186,7 @@
                 <div id="fundoExcluir" >
                     <div id="modalDados" class="col-12  backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
                     <br>
-                    <div class="col-11 mx-auto d-flex justify-content-between"><div class="d-flex "><h4 class=" b primary ">Dados do Paciente</h4><img src="editar.png" class="m-left"></div>  <img src="x-preto.png" class="imagem btn"onclick="fecharModal()"></div><br>
+                    <div class="col-11 mx-auto d-flex justify-content-between"><div class="d-flex "><h4 class=" b primary ">Dados do Paciente</h4><img src="editar.png" class="m-left"></div>  <img src="x-preto.png" class="imagem btn"onclick="fecharModalDados()"></div><br>
             
                     <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
                         <form class="texto tamanhoformulario">
@@ -233,7 +233,7 @@
                             <img class="col-8 mx-auto d-flex justify-center p-5" src="check-mark-verified.gif">
                             <h5 class="colorprimary">Paciente Cadastrado com sucesso</h5><br>
                                 <div class="col-8 text-center mx-auto" > 
-                                    <a  href="#" role="button"type="submit" class="btn letrabranca  b botao  borda color ">Ok</a><br><br>
+                                    <a  href="#" onclick="fecharModalCheck()" role="button"type="submit" class="btn letrabranca  b botao  borda color ">Ok</a><br><br>
                                 </div>
                         </div>
                     </div> 

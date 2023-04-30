@@ -43,17 +43,18 @@
         </div>
         <div class="col-8 fundobranco ">
             <div class="d-flex justify-content-between left-right ">
-                <h4><img src="sessão.png">   Sessão</h4>
+                <h4 onclick="openModalNovaSessao()"type="submit"><img src="sessão.png">   Sessão</h4>
                 <h4 onclick="openFatoRelevante()" type="submit"><img src="fato-relevante.png">   Fato Relevante</h4>
            </div> 
 
         </div>
     </div><br>
     <!--  modal nova sessao -->
-<div class="col-7 mx-auto fundobranco1 ">
+<div id="fundoNovaSessao">
+<div id="modalNovaSessao" class="col-7 mx-auto fundobranco1 ">
     <div class="d-flex justify-content-between distancia1 m-top ">
         <h4 class="  primary">Nova sessão</h4>
-        <img src="x-preto.png" class="imagem btn">
+        <img src="x-preto.png"onclick="fecharModalNovaSessao()" class="imagem btn">
     </div><br>
     <div class="overflow-y-scroll tamanhoscroll distancia1">
         <div class="d-flex ">
@@ -93,27 +94,31 @@
     </div>  
       
     <div class="row"></div>
-    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</button></div></div>
+    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios 
+        <div> <a href="#" class="colorgray link" onclick="fecharModalNovaSessao()">Cancelar</a> <a href="prontuário2.html"type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</a></div></div>
     <br>
     
 </div><br>
+</div>
 <!-- modal novo fato relevante -->
 <div id="fundoFatoRelevante">
-<div id="modalFatoRelevante" class="fundobranco1 col-6 mx-auto">
+<div id="modalFatoRelevante" class="fundobranco1 col-5 mx-auto">
     <div class="d-flex justify-content-between col-10 mx-auto m-top ">
         <h4 class="  primary">Novo Fato Relevante</h4>
-        <img src="x-preto.png" onclick="fecharModal()" class=" btn">
+        <img src="x-preto.png" onclick="fecharModalFatoRelevante()" class=" btn">
     </div><br>
    <div class="col-10 mx-auto">
         <div class="d-flex justify-content-between ">
             <form class="">
-                <div>
-                    <label class="colorgray" for="data">Data*</label><br>
-                    <input type="date" class="" id="data" placeholder="00/00/0000"> <br>
-                </div>
-                <div class="">
-                    <label class="colorgray" for="titulo1">Título*</label><br>
-                    <input type="text" class="form-control" id="titulo1" placeholder="Digite"> <br>
+                <div class="d-flex gap-2 ">
+                    <div>
+                        <label class="colorgray" for="data"> Data*</label><br>
+                        <input type="date" class="" id="data" placeholder="00/00/0000"> <br>
+                    </div>                
+                    <div>
+                        <label class="colorgray" for="titulo1"> Título*</label><br>
+                        <input type="text" class="tamanhoformulario" id="titulo1" placeholder="Digite"> <br>
+                    </div>
                 </div>
         
                 <div>
@@ -125,7 +130,12 @@
         </div>
     </div>
     <div class="row"></div>
-    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</button></div></div>
+    <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios 
+        <div> 
+            <a href="#"onclick="fecharModalFatoRelevante()" class="colorgray link">Cancelar</a> 
+            <a href="prontuário2.html" type="submit" class="color m-left tamanhobotao btn btn-secondary">Criar</a>
+        </div>
+    </div>
     <br>
 </div>    
 </div>

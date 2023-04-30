@@ -1,60 +1,92 @@
+//modal cadastro
 let fundoModal= document.querySelector('#fundoModal');
 let modalCadastro= document.querySelector('#modalCadastro');
-let modalEditar= document.querySelector('#modalEditar');
-let modalDados= document.querySelector('#modalDados');
-let modalCheck= document.querySelector('#modalCheck');
-let fundoCheck= document.querySelector('#fundoCheck');
-let fundoEditar= document.querySelector('#fundoEditar');
-let fundoExcluir= document.querySelector('#fundoExcluir');
-let btnCriar= document.querySelector('#btnCriar');
-let formCriar= document.querySelector('#formCriar');
-let fundoFatoRelevante= document.querySelector('#fundoFatoRelevante');
-
 function openModal(){
   fundoModal.style.display= 'block';
   modalCadastro.style.display = 'block';
 }
+function fecharModal(){
+  fundoModal.style.display= 'none';
+  modalCadastro.style.display = 'none';
+ }
+//modal editar cadastro
+let modalEditar= document.querySelector('#modalEditar');
+let fundoEditar= document.querySelector('#fundoEditar');
 function openModalEditar(){
   
   fundoEditar.style.display= 'block';
   modalEditar.style.display = 'block';
 }
+function fecharModalEditar(){
+  fundoEditar.style.display= 'none';
+  modalEditar.style.display= 'none';
+}
+//modal dados/excluir cadastro
+let modalDados= document.querySelector('#modalDados');
+let fundoExcluir= document.querySelector('#fundoExcluir');
 function openModalDados(){
   
   fundoExcluir.style.display= 'block';
   modalDados.style.display = 'block';
 }
+function fecharModalDados(){
+  fundoExcluir.style.display= 'none';
+ modalDados.style.display= 'none';
+}
+//modal check
+let modalCheck= document.querySelector('#modalCheck');
+let fundoCheck= document.querySelector('#fundoCheck');
 function openModalCheck(){
   
   fundoCheck.style.display= 'block';
   modalCheck.style.display = 'block';
 }
+function fecharModalCheck(){
+  fundoCheck.style.display= 'none';
+  modalCheck.style.display= 'none';
+}
+//let btnCriar= document.querySelector('#btnCriar');
+//let formCriar= document.querySelector('#formCriar');
+//  formCriar.addEventListener('submit',  e =>{
+//   e.preventDefault()
+//    btnCriar.addEventListener('click', e =>{
+//    modalCheck.style.display= 'block';
+//   })
+//   })
+
+
+//modal fato relevante- pag prontuario
+let fundoFatoRelevante= document.querySelector('#fundoFatoRelevante');
+let modalFatoRelevante=document.querySelector('#modalFatoRelevante'); 
+
 function openFatoRelevante(){
   
   fundoFatoRelevante.style.display= 'block';
   modalFatoRelevante.style.display = 'block';
 }
-
-
-formCriar.addEventListener('submit',  e =>{
- e.preventDefault()
-  bntCriar.addEventListener('click', e =>{
-  modalCheck.style.display= 'block';
- })
- })
-
-
-function fecharModal(){
-  modalCadastro.style.display = 'none';
-  fundoModal.style.display= 'none';
-  modalEditar.style.display= 'none';
-  modalDados.style.display= 'none';
-  modalCheck.style.display= 'none';
-  fundoEditar.style.display= 'none';
-  fundoExcluir.style.display= 'none';
-  fundoCheck.style.display= 'none';
+function fecharModalFatoRelevante(){
   fundoFatoRelevante.style.display= 'none';
- }
+  modalFatoRelevante.style.display='none';
+}
+//modal nova sessao-pag prontuario
+let fundoNovaSessao= document.querySelector('#fundoNovaSessao')
+let modalNovaSessao=document.querySelector('#modalNovaSessao')
+function openModalNovaSessao(){
+  
+  fundoNovaSessao.style.display= 'block';
+  modalNovaSessao.style.display = 'block';
+}
+function fecharModalNovaSessao(){
+  fundoNovaSessao.style.display= 'none';
+  modalNovaSessao.style.display='none';
+}
+
+
+
+
+
+
+
 // const toggleModal = () => {
 //   modalCadastro.classList.console.log ("teste");
 //   fundoModal.classList.toggle("hide");
