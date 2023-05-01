@@ -1,51 +1,7 @@
 {
   "Pacientes": [
-    {
-      "id": "1",
-      "Nome": "",
-      "CPF": "",
-      "Email": "",
-      "Sexo": "",
-      "DataDeNascimento": "",
-      "EstadoCivil": "",
-      "Naturalidade": "",
-      "Nacionalidade": "",
-      "Profissao": "",
-      "Escolaridade": "",
-      "Mae": "",
-      "Pai": ""
-    },
-   
-    {
-      "id": "nUH41EJ",
-      "Nome": "Jaqui",
-      "CPF": "00",
-      "Email": "eu@eu.com",
-      "Sexo": "f",
-      "DataDeNascimento": "13/04/0000",
-      "EstadoCivil": "solteira",
-      "Naturalidade": "sinop",
-      "Nacionalidade": "brasileira",
-      "Profissao": "*",
-      "Escolaridade": "*",
-      "Mae": "*",
-      "Pai": "*"
-    },
-    {
-      "id": "tzF-YDY",
-      "Nome": "Jaqui",
-      "CPF": "00",
-      "Email": "eu@eu.com",
-      "Sexo": "f",
-      "DataDeNascimento": "13/04/0000",
-      "EstadoCivil": "solteira",
-      "Naturalidade": "sinop",
-      "Nacionalidade": "brasileira",
-      "Profissao": "*",
-      "Escolaridade": "*",
-      "Mae": "*",
-      "Pai": "*"
-    }
+  
+    
   ],
   "Usuarios": [
     {

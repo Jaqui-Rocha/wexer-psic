@@ -83,13 +83,9 @@ function fecharModalNovaSessao(){
 function openMiniModal(){
  miniModal.style.display= 'block';
  
+}function fecharMinimodal(){
+  miniModal.style.display= 'none';
 }
-
-let ocultarMiniModal=document.querySelector('#miniModal')
-
-ocultarMiniModal.addEventListener('click', ()=>{
-  ocultarMiniModal.style.display='none';
-})
 // modal do usuario na pag prontuario2
 let dadosUsuario= document.querySelector('.dadosUsuario')
 let pointer=document.querySelector('.pointer')
@@ -100,25 +96,84 @@ dadosUsuario.addEventListener('click',()=>{
 })
 
 })
-// // modal do usuario na pag pacientes
-// let dadosUsuarioPacientes= document.querySelector('#dadosUsuarioPacientes')
-// let pontinhosP=document.querySelector('.pontinhos')
-// pontinhosP.addEventListener('click',()=>{
-// dadosUsuarioPacientes.style.display='block';
-// dadosUsuarioPacientes.addEventListener('click',()=>{
-//   dadosUsuarioPacientes.style.display='none';
-// })
-
-// })
 // tentando Crud
+const urlPacientes= "http://localhost:3000/Pacientes"
+const Sexo= document.querySelector('#sexo')
+const EstadoCivil= document.querySelector('#civil')
+const Nacionalidade= document.querySelector('#nacionalidade')
+const Nome= document.querySelector('#nome')
+const CPF= document.querySelector('#cpf')
+const Email= document.querySelector('#email')
+const DataDeNascimento= document.querySelector('#nascimento')
+const Naturalidade= document.querySelector('#naturalidade')
+const Profissao= document.querySelector('#profissao')
+const Escolaridade= document.querySelector('#escolaridade')
+const Mae= document.querySelector('#mae')
+const Pai= document.querySelector('#pai')
 
-const ListaPacientes={
-  Pacientes:[
-    {Codigo:'0',Nome:'', CPF:'',Email:'',Sexo:'',DataDeNascimento:'',EstadoCivil:'',Naturalidade:'',Nacionalidade:'',Profissao:'',Escolaridade:'',Mae:'',Pai:'',
-
-    }
-  ]
+const visualizarPacientes = async () => {
+  const apiResponse = await fetch(urlPacientes)
+  const pacientes = await apiResponse.json()
+  console.log(pacientes)
 }
+const criarPacientes = async (pacientes) => {
+  await fetch(urlPacientes, {    
+    method: "POST",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+   body: JSON.stringify(pacientes)
+  });
+}
+
+const addPacientes = async () => {
+  
+  const pacientes = {
+    "id": 1,
+      "Nome": Nome.value,
+      "CPF": CPF.value,
+      "Email": Email.value,
+      "Sexo": Sexo.sexo[indice].text,
+      "DataDeNascimento": DataDeNascimento.value,
+      "EstadoCivil": EstadoCivil.civil[indice].text,
+      "Naturalidade": Naturalidade.value,
+      "Nacionalidade": Nacionalidade.nacionalidade[indice].text,
+      "Profissao": Profissao.value,
+      "Escolaridade": Escolaridade.value,
+      "Mae":Mae.value,
+      "Pai": Pai.value
+  };
+
+  await criarPacientes(pacientes);
+}
+const editarPacientes = async (pacientes) => {
+  await fetch(urlPacientes, {    
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+   body: JSON.stringify(pacientes)
+  });
+}
+// validação para envio
+if (criarPacientes()) {
+  //(colocar função cadastrado com sucesso)
+  let btnCriar= document.querySelector('#btnCriar');
+  let formCriar= document.querySelector('#formCriar');
+   formCriar.addEventListener('submit',  e =>{
+    e.preventDefault()
+     btnCriar.addEventListener('click', e =>{
+     modalCheck.style.display= 'block';
+     fundoCheck.style.display= 'block';
+    })
+    })
+        return
+    } else {
+        return;
+    };
+
 // Função criar Pacientes
 // function CriarPacientes(dados){
 // ListaPacientes.Pacientes.push({
@@ -145,39 +200,3 @@ const ListaPacientes={
 // }
 
 
-const visualizarPacientes = async () => {
-  const apiResponse = await fetch('http://localhost:3000/Pacientes')
-  const pacientes = await apiResponse.json()
-  console.log(pacientes)
-}
-const criarPacientes = async (pacientes) => {
-  await fetch("http://localhost:3000/Pacientes", {
-    method: "POST",
-    headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(pacientes)
-  });
-}
-
-const addPacientes = async () => {
-  const selecionar= document.querySelector('#sexo')
-  const pacientes = {
-    "id": "1",
-    "Nome": document.getElementById('nome'),
-    "CPF": document.getElementById('CPF'),
-    "Email": document.getElementById('email'),
-    "Sexo": selecionar.sexo[indice].text,
-    "DataDeNascimento": document.getElementById('nascimento'),
-    "EstadoCivil": document.getElementById('nome'),
-    "Naturalidade": "",
-    "Nacionalidade": "",
-    "Profissao": "",
-    "Escolaridade": "",
-    "Mae": "",
-    "Pai": ""
-  }
-
-  await criarPacientes(pacientes)
-}
