@@ -26,7 +26,7 @@
        <h2 class="colorgray "> Meus Pacientes</h2>
         <div class="backgroudwhite d-flex justify-content-center flex-column botao1">
             <div class="d-flex p-4 ">
-                <button id="btnModal"onclick="openModal()"class="color btn borda1 img-fluid text-wrap texto"><img src="botao+.png">Novo Cadastro</button>
+                <button id="btnModal" onclick="openModal()" class="color btn borda1 img-fluid text-wrap texto"><img src="botao+.png">Novo Cadastro</button>
                     <div class="d-flex col-10 justify-content-end ">
                          
                          <input class="col-5 text-sm-start colorgray sborda radioLE p-lg-2"value="Pesquisar"></input><button type="submit" class="radioLD sborda color texto img-fluid text-wrap p-lg-2"><img src="lupa.png"> Filtrar</button><br><br><br>
@@ -44,7 +44,7 @@
                     <div class="acoes bordagray2  d-flex justify-content-center align-items-center">
                        <a href="Prontuario.html"> <img src="prontuario.png" type="submit">  </a>
                         <img src="editar.png"  type="submit" id="editar"onclick="openModalEditar()">
-                        <img src="lixeira.png" type="submit" onclick="openModalDados()">
+                        <img src="lixeira.png" type="submit" class=""onclick="openModalDados()">
                     </div>  
                
                 </div>        
@@ -62,49 +62,49 @@
             <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
                 <form class="texto tamanhoformulario d-flex align-items-center justify-content-center col-11 gap-3"id="formCriar">
                 <div class="texto tamanhoformulario">    
-                    <label class="form-label" for="cpf">CPF</label>
-                    <input type="text" class="form-control" id="cpf" placeholder="Digite">
-                    <label class="form-label" for="email">E-mail</label>
-                    <input type="text" class="form-control" id="email" placeholder="Digite">
-                    <label class="form-label" for="naturalidade">Naturalidade</label>
-                    <input type="text" class="form-control" id="naturalidade" placeholder="Digite">
-                    <label class="form-label" for="civil">Estado Civil</label>
-                        <select name="select" id="civil" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Solteiro(a)</option>
-                            <option value="valor3">Casado(a)</option>
-                            <option value="valor4">Divordiado(a)</option>
+                    <label class="form-label" for="cpf">CPF*</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="Digite"required>
+                    <label class="form-label" for="email">E-mail*</label>
+                    <input type="text" class="form-control" id="email" placeholder="Digite"required>
+                    <label class="form-label" for="naturalidade">Naturalidade*</label>
+                    <input type="text" class="form-control" id="naturalidade" placeholder="Digite"required>
+                    <label class="form-label" for="civil">Estado Civil*</label>
+                        <select name="select" id="civil" class="tamanhoformulario bordaselect select" required>
+                            <option value="" disabled selected>Escolha</option>
+                            <option value="valor1">Solteiro(a)</option>
+                            <option value="valor2">Casado(a)</option>
+                            <option value="valor3">Divordiado(a)</option>
                         </select><br>
                 </div>
                 <div >
-                    <label class="form-label" for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite">
-                    <label class="form-label" for="sexo">Sexo/Gênero</label>
-                        <select name="select" id="sexo" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Feminino</option>
-                            <option value="valor3">Masculino</option>
+                    <label class="form-label" for="nome">Nome*</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite"required>
+                    <label class="form-label" for="sexo">Sexo/Gênero*</label>
+                        <select name="select" id="sexo" class="tamanhoformulario bordaselect select"required>
+                            <option value="" disabled selected>Escolha</option>
+                            <option value="valor1">Feminino</option>
+                            <option value="valor1">Masculino</option>
                         </select><br>
-                    <label class="form-label" for="profissao">Profissão</label>
-                    <input type="text" class="form-control" id="profissao" placeholder="Digite">
-                    <label class="form-label" for="mae">Mãe</label>
-                    <input type="text" class="form-control" id="mae" placeholder="Digite">
+                    <label class="form-label" for="profissao">Profissão*</label>
+                    <input type="text" class="form-control" id="profissao" placeholder="Digite"required>
+                    <label class="form-label" for="mae">Mãe*</label>
+                    <input type="text" class="form-control" id="mae" placeholder="Digite"required>
                 </div>
                 <div>
-                    <label class="form-label" for="nascimento">Data de Nascimento</label>
-                    <input type="text" class="form-control" id="nascimento" placeholder="Digite">
-                    <label class="form-label" for="nacionalidade">Nacionalidade</label><br>
+                    <label class="form-label" for="nascimento">Data de Nascimento*</label>
+                    <input type="text" class="form-control" id="nascimento" placeholder="Digite"required>
+                    <label class="form-label" for="nacionalidade">Nacionalidade*</label><br>
                     
-                        <select name="select" id="nacionalidade" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Brasileiro(a)</option>
-                            <option value="valor3">Outro</option>
+                        <select name="select" id="nacionalidade" class="tamanhoformulario bordaselect select"required>
+                            <option value=""disabled selected>Escolha</option>
+                            <option value="valor1">Brasileiro(a)</option>
+                            <option value="valor2">Outro</option>
                         </select><br>
     
-                    <label class="form-label" for="escolaridade">Escolaridade</label>
-                    <input type="text" class="form-control" id="escolaridade" placeholder="Digite">
-                    <label class="form-label" for="pai">Pai</label>
-                    <input type="text" class="form-control" id="pai" placeholder="Digite">
+                    <label class="form-label" for="escolaridade">Escolaridade*</label>
+                    <input type="text" class="form-control" id="escolaridade" placeholder="Digite"required>
+                    <label class="form-label" for="pai">Pai*</label>
+                    <input type="text" class="form-control" id="pai" placeholder="Digite" required>
                 </div>
             </form>
             
@@ -114,7 +114,7 @@
             <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">
                 *Campos obrigatórios 
                 <div> <a href="#" onclick="fecharModal()" class="link colorgray">Cancelar</a> 
-                    <button type="submit" class="color tamanhobotao  m-left btn btn-secondary" id="btnCriar" >Criar</button>
+                    <button type="" class="color tamanhobotao  m-left btn btn-secondary" id="btnCriar"  >Criar</button>
                 </div>
             </div>
             <br>
@@ -191,14 +191,14 @@
             
                     <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
                         <form class="texto tamanhoformulario">
-                            <label class="form-label" for="cpf">CPF</label>
-                            <input type="text" class="form-control " id="cpf" disabled>
-                            <label class="form-label" for="email">E-mail</label>
-                            <input type="text" class="form-control" id="email" disabled>
-                            <label class="form-label" for="naturalidade">Naturalidade</label>
-                            <input type="text" class="form-control" id="naturalidade" disabled>
-                            <label class="form-label" for="civil">Estado Civil</label>
-                            <input type="text" class="form-control" id="civil" disabled>
+                            <label class="form-label" for="cpf1">CPF</label>
+                            <input type="text" class="form-control " id="cpf1" disabled>
+                            <label class="form-label" for="email1">E-mail</label>
+                            <input type="text" class="form-control" id="email1" disabled>
+                            <label class="form-label" for="naturalidade1">Naturalidade</label>
+                            <input type="text" class="form-control" id="naturalidade1" disabled>
+                            <label class="form-label" for="civil1">Estado Civil</label>
+                            <input type="text" class="form-control" id="civil1" disabled>
                         </form>
                         <form  class="texto tamanhoformulario">
                             <label class="form-label" for="nome">Nome</label>
@@ -222,7 +222,8 @@
                     </form><br>
                    
                     </div>
-                    <div class="col-11 d-flex justify-content-end mx-auto align-items-end"><button class="btn btn-danger  tamanhobotao text-center marginR">Excluir</button></div>
+                    <div class="col-11 d-flex justify-content-end mx-auto align-items-end">
+                        <button type="reset"class="btn btn-danger  tamanhobotao text-center marginR excluir">Excluir</button></div>
                    
                 </div>
                 </div><br>   

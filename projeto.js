@@ -1,14 +1,19 @@
+const urlPacientes= "http://localhost:3000/Pacientes"
 //modal cadastro
-let fundoModal= document.querySelector('#fundoModal');
-let modalCadastro= document.querySelector('#modalCadastro');
+const fundoModal= document.querySelector('#fundoModal');
+const modalCadastro= document.querySelector('#modalCadastro');
 function openModal(){
-  fundoModal.style.display= 'block';
-  modalCadastro.style.display = 'block';
-}
+    fundoModal.style.display= 'block';
+    modalCadastro.style.display = 'block';
+  }
+  
 function fecharModal(){
   fundoModal.style.display= 'none';
   modalCadastro.style.display = 'none';
+  console.log('cagou no pau')
+  
  }
+
 //modal editar cadastro
 let modalEditar= document.querySelector('#modalEditar');
 let fundoEditar= document.querySelector('#fundoEditar');
@@ -32,6 +37,7 @@ function openModalDados(){
 function fecharModalDados(){
   fundoExcluir.style.display= 'none';
  modalDados.style.display= 'none';
+ 
 }
 //modal check
 let modalCheck= document.querySelector('#modalCheck');
@@ -44,6 +50,8 @@ function openModalCheck(){
 function fecharModalCheck(){
   fundoCheck.style.display= 'none';
   modalCheck.style.display= 'none';
+  fecharModal();
+  
 }
 //let btnCriar= document.querySelector('#btnCriar');
 //let formCriar= document.querySelector('#formCriar');
@@ -97,7 +105,7 @@ dadosUsuario.addEventListener('click',()=>{
 
 })
 // tentando Crud
-const urlPacientes= "http://localhost:3000/Pacientes"
+
 const Sexo= document.querySelector('#sexo')
 const EstadoCivil= document.querySelector('#civil')
 const Nacionalidade= document.querySelector('#nacionalidade')
@@ -114,7 +122,8 @@ const Pai= document.querySelector('#pai')
 const visualizarPacientes = async () => {
   const apiResponse = await fetch(urlPacientes)
   const pacientes = await apiResponse.json()
-  console.log(pacientes)
+  console.log(pacientes);
+  return pacientes
 }
 const criarPacientes = async (pacientes) => {
   await fetch(urlPacientes, {    
@@ -125,28 +134,37 @@ const criarPacientes = async (pacientes) => {
     },
    body: JSON.stringify(pacientes)
   });
+
 }
 
-const addPacientes = async () => {
-  
+//botao criar pacientes
+const btnCriar = document.querySelector('#btnCriar')
+btnCriar.addEventListener('click', async () => {
   const pacientes = {
-    "id": 1,
-      "Nome": Nome.value,
-      "CPF": CPF.value,
-      "Email": Email.value,
-      "Sexo": Sexo.sexo[indice].text,
-      "DataDeNascimento": DataDeNascimento.value,
-      "EstadoCivil": EstadoCivil.civil[indice].text,
-      "Naturalidade": Naturalidade.value,
-      "Nacionalidade": Nacionalidade.nacionalidade[indice].text,
-      "Profissao": Profissao.value,
-      "Escolaridade": Escolaridade.value,
-      "Mae":Mae.value,
-      "Pai": Pai.value
-  };
+    
+    "Nome": Nome.value,
+    "CPF": CPF.value,
+    "Email": Email.value,
+    "Sexo": Sexo.value,
+    "DataDeNascimento": DataDeNascimento.value,
+    "EstadoCivil": EstadoCivil.value,
+    "Naturalidade": Naturalidade.value,
+    "Nacionalidade": Nacionalidade.value,
+    "Profissao": Profissao.value,
+    "Escolaridade": Escolaridade.value,
+    "Mae":Mae.value,
+    "Pai": Pai.value
+};
 
-  await criarPacientes(pacientes);
-}
+
+await criarPacientes(pacientes);
+// fecharModal();
+console.log('funciona na escuta');
+openModalCheck();
+
+
+});
+
 const editarPacientes = async (pacientes) => {
   await fetch(urlPacientes, {    
     method: "PUT",
@@ -157,22 +175,16 @@ const editarPacientes = async (pacientes) => {
    body: JSON.stringify(pacientes)
   });
 }
-// validação para envio
-if (criarPacientes()) {
-  //(colocar função cadastrado com sucesso)
-  let btnCriar= document.querySelector('#btnCriar');
-  let formCriar= document.querySelector('#formCriar');
-   formCriar.addEventListener('submit',  e =>{
-    e.preventDefault()
-     btnCriar.addEventListener('click', e =>{
-     modalCheck.style.display= 'block';
-     fundoCheck.style.display= 'block';
-    })
-    })
-        return
-    } else {
-        return;
-    };
+const deletarPaciente= async (idPaciente) => {
+  await fetch(`${urlPacientes}/${idPaciente}`,{
+    method: "DELETE"
+  }
+  )
+
+}
+//função delete
+ const excluirDados = document.querySelectorAll('.excluir') 
+  excluirDados.addEventListener('click',async)
 
 // Função criar Pacientes
 // function CriarPacientes(dados){
