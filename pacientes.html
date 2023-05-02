@@ -12,7 +12,7 @@
      <!-- link JS -->
      <script src="projeto.js"defer></script>
 </head>
-<body class="img-fluid d-flex flex-column">
+<body onload="imprimirListaDePacientes()" class="img-fluid d-flex flex-column">
     <div class="cabecalho d-flex  backgroudsombra">
         <div class="backgroudsombra p-4 botao1">
             <img src="homenzinho.png">
@@ -27,27 +27,22 @@
         <div class="backgroudwhite d-flex justify-content-center flex-column botao1">
             <div class="d-flex p-4 ">
                 <button id="btnModal" onclick="openModal()" class="color btn borda1 img-fluid text-wrap texto"><img src="botao+.png">Novo Cadastro</button>
-                    <div class="d-flex col-10 justify-content-end ">
+                    <form id="formPesquisar" class="d-flex col-10 justify-content-end ">
                          
-                         <input class="col-5 text-sm-start colorgray sborda radioLE p-lg-2"value="Pesquisar"></input><button type="submit" class="radioLD sborda color texto img-fluid text-wrap p-lg-2"><img src="lupa.png"> Filtrar</button><br><br><br>
-                    </div>
+                         <input id="pesquisa" type="search" class="col-5 text-sm-start colorgray sborda radioLE p-lg-2"value=""placeholder="Pesquisar">
+                         <button type="submit" class="radioLD sborda color texto img-fluid text-wrap p-lg-2">
+                            <img src="lupa.png"> Filtrar
+                        </button><br><br><br>
+                    </form>
             </div>
            
             <div class="d-flex flex-column p-20 col-12">
                 <div class="tabela d-flex   ">
                      <div class="cod text-center bordagray2 p-1 blue ">Código</div><div class="nome bordagray2 p-1 blue">Nome</div><div class=" bordagray2 p-1 cpf blue">CPF</div><div class="bordagray2 blue acoes text-center">Ações</div>                
-                </div>   
-                <div class="linha d-flex  ">
-                    <div class="cod text-center bordagray2 p-1"></div>
-                    <div class="nome  bordagray2 p-1"></div>
-                    <div class="cpf bordagray2  p-1"></div>
-                    <div class="acoes bordagray2  d-flex justify-content-center align-items-center">
-                       <a href="Prontuario.html"> <img src="prontuario.png" type="submit">  </a>
-                        <img src="editar.png"  type="submit" id="editar"onclick="openModalEditar()">
-                        <img src="lixeira.png" type="submit" class=""onclick="openModalDados()">
-                    </div>  
-               
-                </div>        
+                </div>  
+                <div id="conteudoTabela"> 
+                   
+                </div>       
             </div>   
         </div>
     </div>
@@ -122,75 +117,93 @@
             </div><br>
     </div>       
             <!-- Tela Editar Dados do Paciente -->
-            <div id="fundoEditar">
-            <div id="modalEditar" class="col-12 backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
+<div id="fundoEditar">
+    <div id="modalEditar" class="col-12 backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
                 <br>
-                <div class="col-11 mx-auto d-flex justify-content-between"><h4 class=" b primary ">Editar Dados do Paciente</h4>  <img src="x-preto.png" onclick="fecharModalEditar()"class="imagem btn"></div><br>
+                <div class="col-11 mx-auto d-flex justify-content-between">
+                    <h4 class=" b primary ">Editar Dados do Paciente
+                    </h4>  
+                    <img src="x-preto.png" onclick="fecharModalEditar()"class="imagem btn">
+                </div><br>
         
-                <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
-                    <form class="texto tamanhoformulario">
-                        <label class="form-label" for="cpf">CPF</label>
-                        <input type="text" class="form-control" id="cpf" placeholder="Digite">
-                        <label class="form-label" for="email">E-mail</label>
-                        <input type="text" class="form-control" id="email" placeholder="Digite">
-                        <label class="form-label" for="naturalidade">Naturalidade</label>
-                        <input type="text" class="form-control" id="naturalidade" placeholder="Digite">
-                        <label class="form-label" for="civil">Estado Civil</label>
-                        <select name="select" id="civil" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Solteiro(a)</option>
+        <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
+            <form id="formEditar"class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
+                    <div class="texto tamanhoformulario">
+                        <label class="form-label" for="cpf2">CPF</label>
+                        <input type="text" class="form-control" id="cpf2" placeholder="Digite">
+                        <label class="form-label" for="email2">E-mail</label>
+                        <input type="text" class="form-control" id="email2" placeholder="Digite">
+                        <label class="form-label" for="naturalidade2">Naturalidade</label>
+                        <input type="text" class="form-control" id="naturalidade2" placeholder="Digite">
+                        <label class="form-label" for="civil2">Estado Civil</label>
+                        <select name="select" id="civil2" class="tamanhoformulario bordaselect select">
+                            <option value="" disabled selected>Escolha</option>
+                            <option value="valor2">Solteiro(a)</option required>
                             <option value="valor3">Casado(a)</option>
                             <option value="valor4">Divordiado(a)</option>
                         </select><br>
-                </form>
-                <form  class="texto tamanhoformulario">
-                    <label class="form-label" for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite">
-                    <label class="form-label" for="sexo">Sexo/Gênero</label>
-                        <select name="select" id="sexo" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Feminino</option>
-                            <option value="valor3">Masculino</option>
-                        </select><br>
-                    <label class="form-label" for="profissao">Profissão</label>
-                    <input type="text" class="form-control" id="profissao" placeholder="Digite">
-                    <label class="form-label" for="mae">Mãe</label>
-                    <input type="text" class="form-control" id="mae" placeholder="Digite">
-                </form>
-                <form  class="texto tamanhoformulario">
-                    <label class="form-label" for="nascimento">Data de Nascimento</label>
-                    <input type="text" class="form-control" id="nascimento" placeholder="Digite">
-                    <label class="form-label" for="nacionalidade">Nacionalidade</label><br>
-                        
-                        <select name="select" id="nacionalidade" class="tamanhoformulario bordaselect select">
-                            <option value="valor1"selected>Escolha</option>
-                            <option value="valor2">Brasileiro(a)</option>
-                            <option value="valor3">Outro</option>
-                        </select><br>
-        
-                    <label class="form-label" for="escolaridade">Escolaridade</label>
-                    <input type="text" class="form-control" id="escolaridade" placeholder="Digite">
-                    <label class="form-label" for="pai">Pai</label>
-                    <input type="text" class="form-control" id="pai" placeholder="Digite">
-                </form>
+                    </div>
+                    <div  class="texto tamanhoformulario">
+                        <label class="form-label" for="nome2">Nome</label>
+                        <input type="text" class="form-control" id="nome2" placeholder="Digite">
+                        <label class="form-label" for="sexo2">Sexo/Gênero</label>
+                            <select name="select" id="sexo2" class="tamanhoformulario bordaselect select">
+                                <option value="valor1"selected>Escolha</option>
+                                <option value="valor2">Feminino</option>
+                                <option value="valor3">Masculino</option>
+                            </select><br>
+                        <label class="form-label" for="profissao2">Profissão</label>
+                        <input type="text" class="form-control" id="profissao2" placeholder="Digite">
+                        <label class="form-label" for="mae2">Mãe</label>
+                        <input type="text" class="form-control" id="mae2" placeholder="Digite">
+                    </div>
+                    <div  class="texto tamanhoformulario">
+                        <label class="form-label" for="nascimento2">Data de Nascimento</label>
+                        <input type="text" class="form-control" id="nascimento2" placeholder="Digite">
+                        <label class="form-label" for="nacionalidade2">Nacionalidade</label><br>
+                            
+                            <select name="select" id="nacionalidade2" class="tamanhoformulario bordaselect select">
+                                <option value="valor1"selected>Escolha</option>
+                                <option value="valor2">Brasileiro(a)</option>
+                                <option value="valor3">Outro</option>
+                            </select><br>
+            
+                        <label class="form-label" for="escolaridade2">Escolaridade</label>
+                        <input type="text" class="form-control" id="escolaridade2" placeholder="Digite">
+                        <label class="form-label" for="pai2">Pai</label>
+                        <input type="text" class="form-control" id="pai2" placeholder="Digite">
+                    </div>    
+
+            </form>
                 
         
-                </div>
-                <div class="row"></div>
-                <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios <div> Cancelar <button type="submit" class="color m-left tamanhobotao1 btn btn-secondary">Salvar Alterações</button></div></div>
-                <br>
+        </div>
+        <div class="row"></div>
+        <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios 
+            <div> Cancelar 
+                <button type="" class="color m-left tamanhobotao1 btn btn-secondary botaoEditarPaciente">Salvar Alterações
+                </button>
+            </div>
+        </div>
+        <br>
         
-            </div>
-            </div>
-            <br>
+    </div>
+</div>
+<br>
                 <!-- Tela Dados do Paciente -->
-                <div id="fundoExcluir" >
-                    <div id="modalDados" class="col-12  backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
-                    <br>
-                    <div class="col-11 mx-auto d-flex justify-content-between"><div class="d-flex "><h4 class=" b primary ">Dados do Paciente</h4><img src="editar.png" class="m-left"></div>  <img src="x-preto.png" class="imagem btn"onclick="fecharModalDados()"></div><br>
+<div id="fundoExcluir" >
+        <div id="modalDados" class="col-12  backgroudwhite d-flex flex-column justify-content-center  mx-auto ">
+        <br>
+                <div class="col-11 mx-auto d-flex justify-content-between">
+                    <div class="d-flex ">
+                        <h4 class=" b primary ">Dados do Paciente</h4>
+                        <img src="editar.png" class="m-left">
+                    </div>  
+                    <img src="x-preto.png" class="imagem btn"onclick="fecharModalDados()">
+                </div><br>
             
-                    <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
-                        <form class="texto tamanhoformulario">
+                    <form id="formDados"class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
+                        <div class="texto tamanhoformulario">
                             <label class="form-label" for="cpf1">CPF</label>
                             <input type="text" class="form-control " id="cpf1" disabled>
                             <label class="form-label" for="email1">E-mail</label>
@@ -199,34 +212,37 @@
                             <input type="text" class="form-control" id="naturalidade1" disabled>
                             <label class="form-label" for="civil1">Estado Civil</label>
                             <input type="text" class="form-control" id="civil1" disabled>
-                        </form>
-                        <form  class="texto tamanhoformulario">
-                            <label class="form-label" for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" disabled>
-                            <label class="form-label" for="sexo">Sexo/Gênero</label>
-                            <input type="text" class="form-control" id="sexo" disabled>
-                            <label class="form-label" for="profissao">Profissão</label>
-                            <input type="text" class="form-control" id="profissao" disabled>
-                            <label class="form-label" for="mae">Mãe</label>
-                            <input type="text" class="form-control" id="mae" disabled>
-                    </form>
-                    <form  class="texto tamanhoformulario">
-                            <label class="form-label" for="nascimento">Data de Nascimento</label>
-                            <input type="text" class="form-control" id="nascimento" disabled>
-                            <label class="form-label" for="nascionalidade">Nacionalidade</label>
-                            <input type="text" class="form-control" id="nascionalidade" disabled>
-                            <label class="form-label" for="escolaridade">Escolaridade</label>
-                            <input type="text" class="form-control" id="escolaridade" disabled>
-                            <label class="form-label" for="pai">Pai</label>
-                            <input type="text" class="form-control" id="pai" disabled>
+                        </div>
+                        <div  class="texto tamanhoformulario">
+                            <label class="form-label" for="nome1">Nome</label>
+                            <input type="text" class="form-control" id="nome1" disabled>
+                            <label class="form-label" for="sexo1">Sexo/Gênero</label>
+                            <input type="text" class="form-control" id="sexo1" disabled>
+                            <label class="form-label" for="profissao1">Profissão</label>
+                            <input type="text" class="form-control" id="profissao1" disabled>
+                            <label class="form-label" for="mae1">Mãe</label>
+                            <input type="text" class="form-control" id="mae1" disabled>
+                        </div>
+                        <div  class="texto tamanhoformulario">
+                            <label class="form-label" for="nascimento1">Data de Nascimento</label>
+                            <input type="text" class="form-control" id="nascimento1" disabled>
+                            <label class="form-label" for="nacionalidade1">Nacionalidade</label>
+                            <input type="text" class="form-control" id="nacionalidade1" disabled>
+                            <label class="form-label" for="escolaridade1">Escolaridade</label>
+                            <input type="text" class="form-control" id="escolaridade1" disabled>
+                            <label class="form-label" for="pai1">Pai</label>
+                            <input type="text" class="form-control" id="pai1" disabled>
+                        </div>        
                     </form><br>
                    
-                    </div>
-                    <div class="col-11 d-flex justify-content-end mx-auto align-items-end">
-                        <button type="reset"class="btn btn-danger  tamanhobotao text-center marginR excluir">Excluir</button></div>
+        
+            <div class="col-11 d-flex justify-content-end mx-auto align-items-end">
+                <button type=""class="btn btn-danger  tamanhobotao text-center marginR excluir">Excluir
+                </button>
+            </div>
                    
-                </div>
-                </div><br>   
+    </div>
+</div><br>   
                 <!-- tela check      -->
                     <div id="fundoCheck">                
                     <div id="modalCheck" class="d-flex flex-column mx-auto ">

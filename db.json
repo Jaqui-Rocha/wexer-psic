@@ -16,19 +16,19 @@
       "id": 1
     },
     {
-      "Nome": "",
+      "Nome": "jaqui",
       "CPF": "teste",
-      "Email": "",
-      "Sexo": "",
-      "DataDeNascimento": "",
-      "EstadoCivil": "",
-      "Naturalidade": "",
-      "Nacionalidade": "",
-      "Profissao": "",
-      "Escolaridade": "",
-      "Mae": "",
-      "Pai": "",
-      "id": 2
+      "Email": "jaquiellysilva@hotmail.com",
+      "Sexo": "valor1",
+      "DataDeNascimento": "03/06/1990",
+      "EstadoCivil": "valor4",
+      "Naturalidade": "sinop",
+      "Nacionalidade": "valor1",
+      "Profissao": "estudante",
+      "Escolaridade": "ensino",
+      "Mae": "oi",
+      "Pai": "oi",
+      "id": 3
     }
   ],
   "Usuarios": [

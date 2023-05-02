@@ -413,7 +413,7 @@ width: 10px;
     z-index: 12;
     width: 1000px;
     max-width: 90%;
-    display: none;
+    /* display: none; */
 }
 #modalCheck{
     position:fixed;

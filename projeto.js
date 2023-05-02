@@ -1,4 +1,22 @@
 const urlPacientes= "http://localhost:3000/Pacientes"
+
+const formPesquisar = document.querySelector('#formPesquisar')
+formPesquisar.addEventListener('submit',async(evento)=>{
+  evento.preventDefault();
+  const PesquisaChave= document.querySelector('#pesquisa').value
+  if(PesquisaChave != ''){
+    const Pesquisa= await fetch (`${urlPacientes}?Nome_like=${PesquisaChave}`)
+    const vetorJson = await Pesquisa.json()
+    console.log(vetorJson);
+    document.querySelector('#conteudoTabela').innerHTML='' 
+    vetorJson.forEach(elementoVetor =>{
+      imprimirPaciente(elementoVetor);
+    })
+
+    
+  }
+})
+
 //modal cadastro
 const fundoModal= document.querySelector('#fundoModal');
 const modalCadastro= document.querySelector('#modalCadastro');
@@ -10,18 +28,58 @@ function openModal(){
 function fecharModal(){
   fundoModal.style.display= 'none';
   modalCadastro.style.display = 'none';
-  console.log('cagou no pau')
+  
   
  }
 
 //modal editar cadastro
 let modalEditar= document.querySelector('#modalEditar');
 let fundoEditar= document.querySelector('#fundoEditar');
-function openModalEditar(){
+async function openModalEditar(idPaciente){
+  const paciente= await obterPacienteId(idPaciente);
+
+  document.querySelector('#sexo2').value=paciente.Sexo
+  document.querySelector('#civil2').value=paciente.EstadoCivil
+  document.querySelector('#nacionalidade2').value=paciente.Nacionalidade
+  document.querySelector('#nome2').value=paciente.Nome
+  document.querySelector('#cpf2').value=paciente.CPF
+  document.querySelector('#email2').value=paciente.Email
+  document.querySelector('#nascimento2').value=paciente.DataDeNascimento
+  document.querySelector('#naturalidade2').value=paciente.Naturalidade
+  document.querySelector('#profissao2').value=paciente.Profissao
+  document.querySelector('#escolaridade2').value=paciente.Escolaridade
+  document.querySelector('#mae2').value=paciente.Mae
+  document.querySelector('#pai2').value=paciente.Pai
   
   fundoEditar.style.display= 'block';
   modalEditar.style.display = 'block';
+
+  const botaoEditarPaciente = document.querySelector('.botaoEditarPaciente') 
+  botaoEditarPaciente.addEventListener('click',async()=>{
+  
+const pacienteEditado =
+{
+  "Nome": document.querySelector('#nome2').value,
+  "CPF": document.querySelector('#cpf2').value,
+  "Email": document.querySelector('#email2').value,
+  "Sexo": document.querySelector('#sexo2').value,
+  "DataDeNascimento": document.querySelector('#nascimento2').value,
+  "EstadoCivil": document.querySelector('#civil2').value,
+  "Naturalidade": document.querySelector('#naturalidade2').value,
+  "Nacionalidade": document.querySelector('#nacionalidade2').value,
+  "Profissao": document.querySelector('#profissao2').value,
+  "Escolaridade": document.querySelector('#escolaridade2').value,
+  "Mae": document.querySelector('#mae2').value,
+  "Pai": document.querySelector('#mae2').value,
+  
 }
+  await editarPaciente(idPaciente,pacienteEditado);
+  await imprimirListaDePacientes();
+  fecharModalEditar()
+  
+
+
+})}
 function fecharModalEditar(){
   fundoEditar.style.display= 'none';
   modalEditar.style.display= 'none';
@@ -29,10 +87,34 @@ function fecharModalEditar(){
 //modal dados/excluir cadastro
 let modalDados= document.querySelector('#modalDados');
 let fundoExcluir= document.querySelector('#fundoExcluir');
-function openModalDados(){
-  
+async function openModalDados(idPaciente){
+
+  const paciente= await obterPacienteId(idPaciente);
+
+  document.querySelector('#sexo1').value=paciente.Sexo
+  document.querySelector('#civil1').value=paciente.EstadoCivil
+  document.querySelector('#nacionalidade1').value=paciente.Nacionalidade
+  document.querySelector('#nome1').value=paciente.Nome
+  document.querySelector('#cpf1').value=paciente.CPF
+  document.querySelector('#email1').value=paciente.Email
+  document.querySelector('#nascimento1').value=paciente.DataDeNascimento
+  document.querySelector('#naturalidade1').value=paciente.Naturalidade
+  document.querySelector('#profissao1').value=paciente.Profissao
+  document.querySelector('#escolaridade1').value=paciente.Escolaridade
+  document.querySelector('#mae1').value=paciente.Mae
+  document.querySelector('#pai1').value=paciente.Pai
   fundoExcluir.style.display= 'block';
   modalDados.style.display = 'block';
+
+  //função delete
+ const excluirDados = document.querySelector('.excluir') 
+ excluirDados.addEventListener('click',async()=>{
+  await deletarPaciente(idPaciente);
+  fecharModalDados();
+  await imprimirListaDePacientes()
+
+ 
+ })
 }
 function fecharModalDados(){
   fundoExcluir.style.display= 'none';
@@ -53,14 +135,6 @@ function fecharModalCheck(){
   fecharModal();
   
 }
-//let btnCriar= document.querySelector('#btnCriar');
-//let formCriar= document.querySelector('#formCriar');
-//  formCriar.addEventListener('submit',  e =>{
-//   e.preventDefault()
-//    btnCriar.addEventListener('click', e =>{
-//    modalCheck.style.display= 'block';
-//   })
-//   })
 
 
 //modal fato relevante- pag prontuario
@@ -125,6 +199,11 @@ const visualizarPacientes = async () => {
   console.log(pacientes);
   return pacientes
 }
+const obterPacienteId= async (idPaciente)=>{
+  const apiResponse = await fetch(`${urlPacientes}/${idPaciente}`);
+  const pacienteJson= await apiResponse.json();
+  return pacienteJson
+}
 const criarPacientes = async (pacientes) => {
   await fetch(urlPacientes, {    
     method: "POST",
@@ -158,23 +237,25 @@ btnCriar.addEventListener('click', async () => {
 
 
 await criarPacientes(pacientes);
+await imprimirListaDePacientes();
 // fecharModal();
-console.log('funciona na escuta');
+
 openModalCheck();
 
 
 });
 
-const editarPacientes = async (pacientes) => {
-  await fetch(urlPacientes, {    
+const editarPaciente = async (idPaciente,pacienteEditado) => {
+  await fetch(`${urlPacientes}/${idPaciente}`,{  
     method: "PUT",
     headers: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/json'
     },
-   body: JSON.stringify(pacientes)
+   body: JSON.stringify(pacienteEditado)
   });
 }
+
 const deletarPaciente= async (idPaciente) => {
   await fetch(`${urlPacientes}/${idPaciente}`,{
     method: "DELETE"
@@ -182,33 +263,27 @@ const deletarPaciente= async (idPaciente) => {
   )
 
 }
-//função delete
- const excluirDados = document.querySelectorAll('.excluir') 
-  excluirDados.addEventListener('click',async)
+const imprimirPaciente= (paciente)=>{
+ let conteudoTabela = document.querySelector('#conteudoTabela')
+conteudoTabela.innerHTML=conteudoTabela.innerHTML +
+` <div class="linha d-flex ">
+<div class="cod text-center bordagray2 p-1">${paciente.id}</div>
+<div class="nome  bordagray2 p-1">${paciente.Nome}</div>
+<div class="cpf bordagray2  p-1">${paciente.CPF}</div>
+<div class="acoes bordagray2  d-flex justify-content-center align-items-center">
+<a href="Prontuario.html"> <img src="prontuario.png" type="submit">  </a>
+    <img src="editar.png"  type="submit" id="editar"onclick="openModalEditar(${paciente.id})">
+    <img src="lixeira.png" type="submit" class=""onclick="openModalDados(${paciente.id})">
+</div>  
 
-// Função criar Pacientes
-// function CriarPacientes(dados){
-// ListaPacientes.Pacientes.push({
-//   Codigo:ListaPacientes.Pacientes.length+ 1,
-//   Nome:dados.nome,
-//   CPF:dados.CPF,
-//   Email:dados.Email,
-//   Sexo,DataDeNascimento,EstadoCivil,Nacionalidade,Profissao,Escolaridade,Mae,Pai
-// });
-
-// } 
-// CriarPacientes('2, Paciente');
-// console.log(ListaPacientes.Pacientes)
-
-// //Função Ler Dados Pacientes
-// function MostrarPacientes(){
-//   return ListaPacientes.Pacientes;
-
-// }
-// console.log(MostrarPacientes)
-// //Função Editar Dados
-// function Editar(){
-
-// }
+</div> `
+}
+const imprimirListaDePacientes= async ()=>{
+  const vetorPacientes= await visualizarPacientes()
+  conteudoTabela.innerHTML=''
+  vetorPacientes.forEach(elemento=> {
+    imprimirPaciente(elemento)
+  });
+}
 
 
