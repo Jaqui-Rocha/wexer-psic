@@ -40,10 +40,28 @@
                 <div class="tabela d-flex   ">
                      <div class="cod text-center bordagray2 p-1 blue ">Código</div><div class="nome bordagray2 p-1 blue">Nome</div><div class=" bordagray2 p-1 cpf blue">CPF</div><div class="bordagray2 blue acoes text-center">Ações</div>                
                 </div>  
-                <div id="conteudoTabela"> 
+                <div id="conteudoTabela"class="conteudoTabela"> 
                    
                 </div>       
             </div>   
+            <nav aria-label="Navegação de página exemplo"class=" d-flex justify-content-center">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Anterior">
+                      <span aria-hidden="true">&laquo;</span>                      
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="http://localhost:3000/Pacientes?offset=0&limit=8">1</a></li>
+                  <li class="page-item"><a class="page-link" href="http://localhost:3000/Pacientes?offset=9&limit=8">2</a></li>
+                  <li class="page-item"><a class="page-link" href="http://localhost:3000/Pacientes?offset=18&limit=8">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Próximo">
+                      <span aria-hidden="true">&raquo;</span>
+                      
+                    </a>
+                  </li>
+                </ul>
+              </nav>
         </div>
     </div>
 
@@ -52,7 +70,10 @@
         <div id="modalCadastro" class="col-12 backgroudwhite d-flex flex-column justify-content-center  mx-auto">
             
             <br>
-            <div class="col-11 mx-auto d-flex justify-content-between"><h4 class=" b primary ">Novo Paciente</h4>  <img src="x-preto.png" class="imagem btn" onclick="fecharModal()" ></div><br>
+            <div class="col-11 mx-auto d-flex justify-content-between">
+                <h4 class=" b primary ">Novo Paciente</h4>  
+                <img src="x-preto.png" class="imagem btn" onclick="fecharModal()" >
+            </div><br>
 
             <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
                 <form class="texto tamanhoformulario d-flex align-items-center justify-content-center col-11 gap-3"id="formCriar">
@@ -66,9 +87,9 @@
                     <label class="form-label" for="civil">Estado Civil*</label>
                         <select name="select" id="civil" class="tamanhoformulario bordaselect select" required>
                             <option value="" disabled selected>Escolha</option>
-                            <option value="valor1">Solteiro(a)</option>
-                            <option value="valor2">Casado(a)</option>
-                            <option value="valor3">Divordiado(a)</option>
+                            <option value="Solteiro(a)">Solteiro(a)</option>
+                            <option value="Casado(a)">Casado(a)</option>
+                            <option value="Divorciado(a)">Divorciado(a)</option>
                         </select><br>
                 </div>
                 <div >
@@ -77,8 +98,8 @@
                     <label class="form-label" for="sexo">Sexo/Gênero*</label>
                         <select name="select" id="sexo" class="tamanhoformulario bordaselect select"required>
                             <option value="" disabled selected>Escolha</option>
-                            <option value="valor1">Feminino</option>
-                            <option value="valor1">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
                         </select><br>
                     <label class="form-label" for="profissao">Profissão*</label>
                     <input type="text" class="form-control" id="profissao" placeholder="Digite"required>
@@ -92,8 +113,8 @@
                     
                         <select name="select" id="nacionalidade" class="tamanhoformulario bordaselect select"required>
                             <option value=""disabled selected>Escolha</option>
-                            <option value="valor1">Brasileiro(a)</option>
-                            <option value="valor2">Outro</option>
+                            <option value="Brasileiro(a)">Brasileiro(a)</option>
+                            <option value="Outro">Outro</option>
                         </select><br>
     
                     <label class="form-label" for="escolaridade">Escolaridade*</label>
@@ -138,9 +159,9 @@
                         <label class="form-label" for="civil2">Estado Civil</label>
                         <select name="select" id="civil2" class="tamanhoformulario bordaselect select">
                             <option value="" disabled selected>Escolha</option>
-                            <option value="valor2">Solteiro(a)</option required>
-                            <option value="valor3">Casado(a)</option>
-                            <option value="valor4">Divordiado(a)</option>
+                            <option value="Solteiro(a)">Solteiro(a)</option required>
+                            <option value="Casado(a)">Casado(a)</option>
+                            <option value="Divorciado(a)">Divordiado(a)</option>
                         </select><br>
                     </div>
                     <div  class="texto tamanhoformulario">
@@ -148,9 +169,9 @@
                         <input type="text" class="form-control" id="nome2" placeholder="Digite">
                         <label class="form-label" for="sexo2">Sexo/Gênero</label>
                             <select name="select" id="sexo2" class="tamanhoformulario bordaselect select">
-                                <option value="valor1"selected>Escolha</option>
-                                <option value="valor2">Feminino</option>
-                                <option value="valor3">Masculino</option>
+                                <option value=""disabled selected>Escolha</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
                             </select><br>
                         <label class="form-label" for="profissao2">Profissão</label>
                         <input type="text" class="form-control" id="profissao2" placeholder="Digite">
@@ -163,9 +184,9 @@
                         <label class="form-label" for="nacionalidade2">Nacionalidade</label><br>
                             
                             <select name="select" id="nacionalidade2" class="tamanhoformulario bordaselect select">
-                                <option value="valor1"selected>Escolha</option>
-                                <option value="valor2">Brasileiro(a)</option>
-                                <option value="valor3">Outro</option>
+                                <option value="" disabled selected>Escolha</option>
+                                <option value="Brasileiro(a)">Brasileiro(a)</option>
+                                <option value="Outro">Outro</option>
                             </select><br>
             
                         <label class="form-label" for="escolaridade2">Escolaridade</label>
@@ -180,7 +201,8 @@
         </div>
         <div class="row"></div>
         <div class=" col-11 mx-auto distancia d-flex colorgray justify-content-between align-items-center">*Campos obrigatórios 
-            <div> Cancelar 
+            <div> 
+                <a href="#" onclick="fecharModalEditar()" class="link colorgray">Cancelar</a> 
                 <button type="" class="color m-left tamanhobotao1 btn btn-secondary botaoEditarPaciente">Salvar Alterações
                 </button>
             </div>
@@ -197,7 +219,7 @@
                 <div class="col-11 mx-auto d-flex justify-content-between">
                     <div class="d-flex ">
                         <h4 class=" b primary ">Dados do Paciente</h4>
-                        <img src="editar.png" class="m-left">
+                        <img src="editar.png" type="submit" onclick="openModalEditar(idPaciente)" class="m-left botaoEditarPaciente btn">
                     </div>  
                     <img src="x-preto.png" class="imagem btn"onclick="fecharModalDados()">
                 </div><br>

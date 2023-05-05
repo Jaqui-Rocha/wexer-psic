@@ -1,7 +1,7 @@
 const urlPacientes= "http://localhost:3000/Pacientes"
 
 const formPesquisar = document.querySelector('#formPesquisar')
-formPesquisar.addEventListener('submit',async(evento)=>{
+formPesquisar.addEventListener('click',async(evento)=>{
   evento.preventDefault();
   const PesquisaChave= document.querySelector('#pesquisa').value
   if(PesquisaChave != ''){
@@ -28,9 +28,7 @@ function openModal(){
 function fecharModal(){
   fundoModal.style.display= 'none';
   modalCadastro.style.display = 'none';
-  
-  
- }
+  }
 
 //modal editar cadastro
 let modalEditar= document.querySelector('#modalEditar');
@@ -138,6 +136,7 @@ function fecharModalCheck(){
 
 
 //modal fato relevante- pag prontuario
+
 let fundoFatoRelevante= document.querySelector('#fundoFatoRelevante');
 let modalFatoRelevante=document.querySelector('#modalFatoRelevante'); 
 
@@ -150,6 +149,7 @@ function fecharModalFatoRelevante(){
   fundoFatoRelevante.style.display= 'none';
   modalFatoRelevante.style.display='none';
 }
+
 //modal nova sessao-pag prontuario
 let fundoNovaSessao= document.querySelector('#fundoNovaSessao')
 let modalNovaSessao=document.querySelector('#modalNovaSessao')
@@ -162,6 +162,7 @@ function fecharModalNovaSessao(){
   fundoNovaSessao.style.display= 'none';
   modalNovaSessao.style.display='none';
 }
+const miniModal=document.querySelector('#miniModal');
 function openMiniModal(){
  miniModal.style.display= 'block';
  
@@ -175,7 +176,7 @@ pointer.addEventListener('click',()=>{
 dadosUsuario.style.display='block';
 dadosUsuario.addEventListener('click',()=>{
   dadosUsuario.style.display='none';
-})
+});
 
 })
 // tentando Crud
