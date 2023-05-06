@@ -13,9 +13,10 @@ formPesquisar.addEventListener('click',async(evento)=>{
       imprimirPaciente(elementoVetor);
     })
 
-    
+  
   }
 })
+
 
 //modal cadastro
 const fundoModal= document.querySelector('#fundoModal');
@@ -72,6 +73,7 @@ const pacienteEditado =
   
 }
   await editarPaciente(idPaciente,pacienteEditado);
+  window.location.reload()
   await imprimirListaDePacientes();
   fecharModalEditar()
   
@@ -135,40 +137,6 @@ function fecharModalCheck(){
 }
 
 
-//modal fato relevante- pag prontuario
-
-let fundoFatoRelevante= document.querySelector('#fundoFatoRelevante');
-let modalFatoRelevante=document.querySelector('#modalFatoRelevante'); 
-
-function openFatoRelevante(){
-  
-  fundoFatoRelevante.style.display= 'block';
-  modalFatoRelevante.style.display = 'block';
-}
-function fecharModalFatoRelevante(){
-  fundoFatoRelevante.style.display= 'none';
-  modalFatoRelevante.style.display='none';
-}
-
-//modal nova sessao-pag prontuario
-let fundoNovaSessao= document.querySelector('#fundoNovaSessao')
-let modalNovaSessao=document.querySelector('#modalNovaSessao')
-
-function openModalNovaSessao(){
-  fundoNovaSessao.style.display= 'block';
-  modalNovaSessao.style.display = 'block';
-}
-function fecharModalNovaSessao(){
-  fundoNovaSessao.style.display= 'none';
-  modalNovaSessao.style.display='none';
-}
-const miniModal=document.querySelector('#miniModal');
-function openMiniModal(){
- miniModal.style.display= 'block';
- 
-}function fecharMinimodal(){
-  miniModal.style.display= 'none';
-}
 // modal do usuario na pag prontuario2
 let dadosUsuario= document.querySelector('.dadosUsuario')
 let pointer=document.querySelector('.pointer')
@@ -179,6 +147,8 @@ dadosUsuario.addEventListener('click',()=>{
 });
 
 })
+
+
 // tentando Crud
 
 const Sexo= document.querySelector('#sexo')
