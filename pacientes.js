@@ -12,8 +12,6 @@ formPesquisar.addEventListener('click',async(evento)=>{
     vetorJson.forEach(elementoVetor =>{
       imprimirPaciente(elementoVetor);
     })
-
-  
   }
 })
 
