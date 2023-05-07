@@ -240,9 +240,9 @@ conteudoTabela.innerHTML=conteudoTabela.innerHTML +
 <div class="nome  bordagray2 p-1">${paciente.Nome}</div>
 <div class="cpf bordagray2  p-1">${paciente.CPF}</div>
 <div class="acoes bordagray2  d-flex justify-content-center align-items-center">
-<a href="Prontuario.html"> <img src="prontuario.png" type="submit">  </a>
-    <img src="editar.png"  type="submit" id="editar"onclick="openModalEditar(${paciente.id})">
-    <img src="lixeira.png" type="submit" class=""onclick="openModalDados(${paciente.id})">
+<a href="Prontuario.html"> <img src="./img/prontuario.png" type="submit">  </a>
+    <img src="./img/editar.png"  type="submit" id="editar"onclick="openModalEditar(${paciente.id})">
+    <img src="./img/lixeira.png" type="submit" class=""onclick="openModalDados(${paciente.id})">
 </div>  
 
 </div> `

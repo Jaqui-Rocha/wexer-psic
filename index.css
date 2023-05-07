@@ -10,7 +10,7 @@ body{
    background:  #ececec;
 }
 .body{
-    background: url(logoImage.png) center left no-repeat #ececec;
+    background: url(./img/logoImage.png) center left no-repeat #ececec;
     background-size: contain;
 }
 .botao1{

@@ -1,21 +1,6 @@
 {
   "Pacientes": [
     {
-      "Nome": "Eva",
-      "CPF": "111",
-      "Email": "",
-      "Sexo": "",
-      "DataDeNascimento": "",
-      "EstadoCivil": "",
-      "Naturalidade": "",
-      "Nacionalidade": "",
-      "Profissao": "",
-      "Escolaridade": "",
-      "Mae": "",
-      "Pai": "",
-      "id": 5
-    },
-    {
       "Nome": "Pedro",
       "CPF": "555",
       "Email": "",

@@ -15,23 +15,23 @@
 <body onload="imprimirListaDePacientes()" class="img-fluid d-flex flex-column">
     <div class="cabecalho d-flex  backgroudsombra">
         <div class="backgroudsombra p-4 botao1">
-            <img src="homenzinho.png">
+            <img src="./img/homenzinho.png">
         </div>
         <div class="  primary d-flex justify-content-end col-sm-11 align-items-center pointer">
-            <h5>Bem Vindo(a),</h5><h5 class="b primary align-middle">Daniel </h5><img src="setabaixo.png"class="btn ">
+            <h5>Bem Vindo(a),</h5><h5 class="b primary align-middle">Daniel </h5><img src="./img/setabaixo.png"class="btn ">
         </div>
     </div>
-    <div  ><img src="dadosusuario.png" class="dadosUsuario"></div>
+    <div  ><img src="./img/dadosusuario.png" class="dadosUsuario"></div>
     <div class="col-10 text-start p-4 mx-auto">
        <h2 class="colorgray "> Meus Pacientes</h2>
         <div class="backgroudwhite d-flex justify-content-center flex-column botao1">
             <div class="d-flex p-4 ">
-                <button id="btnModal" onclick="openModal()" class="color btn borda1 img-fluid text-wrap texto"><img src="botao+.png">Novo Cadastro</button>
+                <button id="btnModal" onclick="openModal()" class="color btn borda1 img-fluid text-wrap texto"><img src="./img/botao+.png">Novo Cadastro</button>
                     <form id="formPesquisar" class="d-flex col-10 justify-content-end ">
                          
                          <input id="pesquisa" type="search" class="col-5 text-sm-start colorgray sborda radioLE p-lg-2"value=""placeholder="Pesquisar">
                          <button type="submit" class="radioLD sborda color texto img-fluid text-wrap p-lg-2">
-                            <img src="lupa.png"> Filtrar
+                            <img src="./img/lupa.png"> Filtrar
                         </button><br><br><br>
                     </form>
             </div>
@@ -55,7 +55,7 @@
             <br>
             <div class="col-11 mx-auto d-flex justify-content-between">
                 <h4 class=" b primary ">Novo Paciente</h4>  
-                <img src="x-preto.png" class="imagem btn" onclick="fecharModal()" >
+                <img src="./img/x-preto.png" class="imagem btn" onclick="fecharModal()" >
             </div><br>
 
             <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
@@ -127,7 +127,7 @@
                 <div class="col-11 mx-auto d-flex justify-content-between">
                     <h4 class=" b primary ">Editar Dados do Paciente
                     </h4>  
-                    <img src="x-preto.png" onclick="fecharModalEditar()"class="imagem btn">
+                    <img src="./img/x-preto.png" onclick="fecharModalEditar()"class="imagem btn">
                 </div><br>
         
         <div class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
@@ -202,9 +202,9 @@
                 <div class="col-11 mx-auto d-flex justify-content-between">
                     <div class="d-flex ">
                         <h4 class=" b primary ">Dados do Paciente</h4>
-                        <img src="editar.png" type="submit" onclick="openModalEditar(idPaciente)" class="m-left botaoEditarPaciente btn">
+                        <img src="./img/editar.png" type="submit" onclick="openModalEditar(idPaciente)" class="m-left botaoEditarPaciente btn">
                     </div>  
-                    <img src="x-preto.png" class="imagem btn"onclick="fecharModalDados()">
+                    <img src="./img/x-preto.png" class="imagem btn"onclick="fecharModalDados()">
                 </div><br>
             
                     <form id="formDados"class="d-flex flex-row gap-4 justify-content-center mx-auto col-11">
@@ -253,7 +253,7 @@
                     <div id="modalCheck" class="d-flex flex-column mx-auto ">
             
                         <div class=" backgroudwhite1 borda col-sm-5 mx-auto " >
-                            <img class="col-8 mx-auto d-flex justify-center p-5" src="check-mark-verified.gif">
+                            <img class="col-8 mx-auto d-flex justify-center p-5" src="./img/check-mark-verified.gif">
                             <h5 class="colorprimary">Paciente Cadastrado com sucesso</h5><br>
                                 <div class="col-8 text-center mx-auto" > 
                                     <a  href="#" onclick="fecharModalCheck()" role="button"type="submit" class="btn letrabranca  b botao  borda color ">Ok</a><br><br>
