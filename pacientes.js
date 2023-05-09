@@ -1,5 +1,5 @@
-const urlPacientes= "http://localhost:3000/Pacientes"
-
+const urlPacientes= "https://projetoxerpsic.onrender.com
+"
 const formPesquisar = document.querySelector('#formPesquisar')
 formPesquisar.addEventListener('click',async(evento)=>{
   evento.preventDefault();
